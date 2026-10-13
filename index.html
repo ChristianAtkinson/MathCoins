@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathCoins - Sistema de Cursos</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Librería para leer/escribir Excel -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- HEADER / NAVEGACIÓN PRINCIPAL                          -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <header class="main-header">
+        <div class="header-content">
+            <h1>📐 MathCoins</h1>
+            <nav class="main-nav">
+                <button class="nav-btn active" data-view="public">🏆 Ranking</button>
+                <button class="nav-btn" data-view="private">👤 Mi Billetera</button>
+                <button class="nav-btn admin-btn" data-view="admin">⚙️ Admin</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- VISTA 1: PÚBLICA (Ranking + Catálogo)                  -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <section id="view-public" class="view active">
+            
+            <!-- Selector de curso -->
+            <div class="course-selector">
+                <label for="select-course">🏫 Mi curso:</label>
+                <select id="select-course">
+                    <option value="">-- Seleccioná un curso --</option>
+                </select>
+            </div>
+
+            <!-- Ranking -->
+            <div class="section-card">
+                <h2>🏆 Ranking del Curso</h2>
+                <table class="ranking-table" id="ranking-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Estudiante</th>
+                            <th>Saldo</th>
+                            <th>Nivel</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ranking-body">
+                        <tr><td colspan="4" class="empty-msg">Seleccioná un curso para ver el ranking</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Catálogo -->
+            <div class="section-card">
+                <h2>🛒 Catálogo de Recompensas</h2>
+                <div class="catalog-grid" id="catalog-grid">
+                    <!-- Se llena dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- VISTA 2: PRIVADA (Billetera del alumno)                -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <section id="view-private" class="view">
+            
+            <!-- Login simple del alumno -->
+            <div class="section-card" id="private-login">
+                <h2>👤 Accedé a tu billetera</h2>
+                <div class="login-form">
+                    <label for="login-course">Curso:</label>
+                    <select id="login-course"></select>
+                    
+                    <label for="login-name">Tu nombre:</label>
+                    <select id="login-name">
+                        <option value="">-- Seleccioná tu nombre --</option>
+                    </select>
+                    
+                    <button class="btn-primary" id="btn-login">Ingresar</button>
+                </div>
+            </div>
+
+            <!-- Billetera (oculta hasta login) -->
+            <div id="private-wallet" class="hidden">
+                <div class="wallet-header">
+                    <button class="btn-secondary" id="btn-logout">← Volver</button>
+                    <h2 id="wallet-student-name">Estudiante</h2>
+                </div>
+
+                <!-- Saldo grande -->
+                <div class="balance-card">
+                    <div class="balance-amount" id="wallet-balance">0</div>
+                    <div class="balance-label">MathCoins</div>
+                    <div class="balance-level" id="wallet-level">🔰 Novato</div>
+                </div>
+
+                <!-- Historial -->
+                <div class="section-card">
+                    <h3>📊 Historial de movimientos</h3>
+                    <ul class="history-list" id="wallet-history">
+                        <li class="empty-msg">Sin movimientos registrados</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- VISTA 3: PANEL DE ADMINISTRACIÓN                       -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <section id="view-admin" class="view">
+            
+            <!-- Acceso admin (simple, solo para empezar) -->
+            <div class="section-card" id="admin-login">
+                <h2>🔐 Acceso Administrativo</h2>
+                <p class="hint">Ingresá la clave de profe para continuar</p>
+                <input type="password" id="admin-password" placeholder="Clave">
+                <button class="btn-primary" id="btn-admin-login">Ingresar</button>
+                <p class="hint small">Pista inicial: "profe"</p>
+            </div>
+
+            <!-- Panel admin (oculto hasta login) -->
+            <div id="admin-panel" class="hidden">
+                
+                <!-- Selector de curso activo -->
+                <div class="admin-header">
+                    <label>Curso activo:</label>
+                    <select id="admin-course"></select>
+                    <button class="btn-primary" id="btn-new-course">+ Nuevo Curso</button>
+                    <button class="btn-secondary" id="btn-admin-logout">Salir</button>
+                </div>
+
+                <!-- Formulario de movimiento -->
+                <div class="section-card">
+                    <h3>💰 Registrar movimiento</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Alumno:</label>
+                            <select id="admin-student"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Tipo:</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="mov-type" value="sum" checked> Sumar</label>
+                                <label><input type="radio" name="mov-type" value="sub"> Restar</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Motivo:</label>
+                            <select id="admin-reason">
+                                <option value="Tarea entregada">Tarea entregada</option>
+                                <option value="Participación">Participación</option>
+                                <option value="Uso del Gem">Uso del Gem</option>
+                                <option value="Subasta">Subasta</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Cantidad:</label>
+                            <input type="number" id="admin-amount" value="1" min="1">
+                        </div>
+                        <button class="btn-primary" id="btn-register-mov">💾 Registrar</button>
+                    </div>
+                </div>
+
+                <!-- Gestión de alumnos -->
+                <div class="section-card">
+                    <h3>👥 Alumnos del curso</h3>
+                    <div class="admin-actions">
+                        <button class="btn-secondary" id="btn-import-excel">📥 Importar Excel</button>
+                        <input type="file" id="file-excel" accept=".xlsx,.xls" class="hidden">
+                        <button class="btn-secondary" id="btn-add-student">+ Agregar alumno</button>
+                        <button class="btn-secondary" id="btn-export-excel">📤 Exportar Excel</button>
+                    </div>
+                    <table class="admin-table" id="admin-students-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Saldo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-students-body"></tbody>
+                    </table>
+                </div>
+
+                <!-- Gestión de cursos -->
+                <div class="section-card">
+                    <h3>🏫 Mis cursos</h3>
+                    <div id="admin-courses-list"></div>
+                </div>
+
+                <!-- Edición de catálogo -->
+                <div class="section-card">
+                    <h3>🛒 Catálogo de recompensas (compartido)</h3>
+                    <div id="admin-catalog-list"></div>
+                    <button class="btn-secondary" id="btn-add-catalog">+ Agregar ítem</button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>MathCoins 2025 · Sistema de gamificación educativa</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

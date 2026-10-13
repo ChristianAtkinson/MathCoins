@@ -1,0 +1,215 @@
+{
+  "config": {
+    "anio": 2025,
+    "catalogo": [
+      {
+        "id": 1,
+        "icon": "🎵",
+        "item": "Elegir música en clase",
+        "costo": 5
+      },
+      {
+        "id": 2,
+        "icon": "📝",
+        "item": "Saltar 1 tarea",
+        "costo": 10
+      },
+      {
+        "id": 3,
+        "icon": "🆘",
+        "item": "Ayuda en examen",
+        "costo": 15
+      }
+    ]
+  },
+  "cursos": [
+    {
+      "id": "ees61-4to-2025",
+      "nombre": "4° Año",
+      "escuela": "EES 61",
+      "anio": 2025,
+      "activo": true,
+      "estudiantes": [
+        {
+          "id": "1",
+          "nombre": "ALVAREZ MILAGROS",
+          "historial": [
+            {
+              "fecha": "2025-05-30T10:00:00.000Z",
+              "tipo": "sum",
+              "motivo": "Tarea 30/05",
+              "monto": 4
+            },
+            {
+              "fecha": "2025-05-30T11:00:00.000Z",
+              "tipo": "sum",
+              "motivo": "Actividad 30/05",
+              "monto": 4
+            },
+            {
+              "fecha": "2025-06-01T14:00:00.000Z",
+              "tipo": "sub",
+              "motivo": "Subasta",
+              "monto": 3
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "nombre": "ALVAREZ ZAIRA",
+          "historial": []
+        },
+        {
+          "id": "3",
+          "nombre": "AYALA TOBARES MAILEN",
+          "historial": []
+        },
+        {
+          "id": "4",
+          "nombre": "BUENAHORA NAHIARA",
+          "historial": []
+        },
+        {
+          "id": "5",
+          "nombre": "CARMONA JOAQUIN",
+          "historial": []
+        },
+        {
+          "id": "6",
+          "nombre": "CAVALLO BRITTANY",
+          "historial": []
+        },
+        {
+          "id": "7",
+          "nombre": "CRISPONI ADRIANO",
+          "historial": []
+        },
+        {
+          "id": "8",
+          "nombre": "CORONEL VICTORIA",
+          "historial": []
+        },
+        {
+          "id": "9",
+          "nombre": "COSTANZO UMA",
+          "historial": []
+        },
+        {
+          "id": "10",
+          "nombre": "DI SALVO CRISTIAN",
+          "historial": []
+        },
+        {
+          "id": "11",
+          "nombre": "DURO ZOE",
+          "historial": []
+        },
+        {
+          "id": "12",
+          "nombre": "ESCUDERO LAUTARO",
+          "historial": []
+        },
+        {
+          "id": "13",
+          "nombre": "ESPERON ROMAN",
+          "historial": []
+        },
+        {
+          "id": "14",
+          "nombre": "FIGALLO RAMIRO",
+          "historial": []
+        },
+        {
+          "id": "15",
+          "nombre": "LABOUR THIAGO",
+          "historial": []
+        },
+        {
+          "id": "16",
+          "nombre": "LESCANO LEYLA",
+          "historial": []
+        },
+        {
+          "id": "17",
+          "nombre": "MONSALVE PABLO",
+          "historial": []
+        },
+        {
+          "id": "18",
+          "nombre": "OBIEDO LUNA",
+          "historial": []
+        },
+        {
+          "id": "19",
+          "nombre": "PACHECO MIGUEL",
+          "historial": []
+        },
+        {
+          "id": "20",
+          "nombre": "PEREYRA MARIA",
+          "historial": []
+        },
+        {
+          "id": "21",
+          "nombre": "PEREZ AINHOA",
+          "historial": []
+        },
+        {
+          "id": "22",
+          "nombre": "RETAMALES DYLAN",
+          "historial": []
+        },
+        {
+          "id": "23",
+          "nombre": "RETAMALES MACARENA",
+          "historial": []
+        },
+        {
+          "id": "24",
+          "nombre": "RONDAN GONZALO",
+          "historial": []
+        },
+        {
+          "id": "25",
+          "nombre": "SANCHEZ ZACH KEYLA",
+          "historial": []
+        },
+        {
+          "id": "26",
+          "nombre": "SOTO AINARA",
+          "historial": []
+        },
+        {
+          "id": "27",
+          "nombre": "TAMBOLINI SANTINO",
+          "historial": []
+        },
+        {
+          "id": "28",
+          "nombre": "TORRES CANDELA",
+          "historial": []
+        },
+        {
+          "id": "29",
+          "nombre": "URANGA ABRIL",
+          "historial": []
+        },
+        {
+          "id": "30",
+          "nombre": "MORENO SHARON",
+          "historial": []
+        },
+        {
+          "id": "31",
+          "nombre": "SAENZ LEONEL",
+          "historial": []
+        },
+        {
+          "id": "32",
+          "nombre": "BROWN YANE LOURDES",
+          "historial": []
+        }
+      ]
+    }
+  ]
+}
