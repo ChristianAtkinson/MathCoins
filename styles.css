@@ -194,7 +194,7 @@ body {
     font-style: italic;
 }
 
-/* ═══════════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════ */
 /* CATÁLOGO                                                */
 /* ═══════════════════════════════════════════════════════ */
 .catalog-grid {
@@ -479,4 +479,197 @@ select:focus, input:focus {
     .balance-amount {
         font-size: 3rem;
     }
+}
+
+/* ═══════════════════════════════════════════════════════ */
+/* PANTALLA DE INICIO (PORTADA)                            */
+/* ═══════════════════════════════════════════════════════ */
+.home-hero {
+    text-align: center;
+    padding: 3rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.home-logo {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.home-title {
+    font-size: 3.5rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+}
+
+.home-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-dim);
+    margin-bottom: 3rem;
+}
+
+.home-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 500px;
+    margin: 0 auto 3rem;
+}
+
+.btn-home {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: left;
+}
+
+.btn-home:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-home-primary {
+    border-color: var(--accent);
+}
+
+.btn-home-primary:hover {
+    border-color: var(--accent-hover);
+    background: rgba(233, 69, 96, 0.1);
+}
+
+.btn-home-secondary {
+    border-color: var(--gold);
+}
+
+.btn-home-secondary:hover {
+    border-color: var(--gold);
+    background: rgba(251, 191, 36, 0.1);
+}
+
+.btn-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.btn-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.btn-text strong {
+    font-size: 1.3rem;
+    color: var(--text);
+}
+
+.btn-text small {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+
+.home-footer-info {
+    margin-top: 3rem;
+    padding: 1rem;
+    background: var(--bg-card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.home-footer-info p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
+/* ═══════════════════════════════════════════════════════ */
+/* HEADER DE VISTA CON BOTÓN VOLVER                        */
+/* ═══════════════════════════════════════════════════════ */
+.view-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.view-header h2 {
+    margin: 0;
+    flex-grow: 1;
+}
+
+.btn-back {
+    background: transparent;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.btn-back:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* ═══════════════════════════════════════════════════════ */
+/* BOTÓN GRANDE                                            */
+/* ═══════════════════════════════════════════════════════ */
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* ═══════════════════════════════════════════════════════ */
+/* FORMULARIO LOGIN MEJORADO                               */
+/* ═══════════════════════════════════════════════════════ */
+#private-login h3 {
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#private-login .form-group {
+    margin-bottom: 1rem;
+}
+
+#private-login label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    font-weight: bold;
+}
+
+#private-login select {
+    width: 100%;
+    min-width: unset;
+}
+
+/* ═══════════════════════════════════════════════════════ */
+/* AJUSTE TABLA ADMIN                                      */
+/* ══════════════════════════════════════════════════════ */
+#admin-students-table th:first-child,
+#admin-students-table td:first-child {
+    width: 60px;
+    text-align: center;
+}
+
+#admin-students-table th:last-child,
+#admin-students-table td:last-child {
+    width: 100px;
+    text-align: center;
 }

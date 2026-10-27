@@ -4,44 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MathCoins - Sistema de Cursos</title>
+    
+    <!-- ⚠️ ESTA ES LA LÍNEA CLAVE QUE FALTABA PARA CARGAR EL CSS ️ -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Librería para leer/escribir Excel -->
+    
+    <!-- Librería para leer/escribir Excel (SheetJS) -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
 <body>
 
     <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- HEADER / NAVEGACIÓN PRINCIPAL                          -->
+    <!-- HEADER SUPERIOR                                        -->
     <!-- ═══════════════════════════════════════════════════════ -->
     <header class="main-header">
         <div class="header-content">
             <h1>📐 MathCoins</h1>
-            <nav class="main-nav">
-                <button class="nav-btn active" data-view="public">🏆 Ranking</button>
-                <button class="nav-btn" data-view="private">👤 Mi Billetera</button>
-                <button class="nav-btn admin-btn" data-view="admin">⚙️ Admin</button>
-            </nav>
+            <!-- Botón discreto para acceder al panel de administración -->
+            <button class="nav-btn admin-btn" id="btn-header-admin">️ Admin</button>
         </div>
     </header>
 
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- CONTENIDO PRINCIPAL (El código que me pasaste)         -->
+    <!-- ═══════════════════════════════════════════════════════ -->
     <main class="container">
 
-        <!-- ═══════════════════════════════════════════════════════ -->
-        <!-- VISTA 1: PÚBLICA (Ranking + Catálogo)                  -->
-        <!-- ═══════════════════════════════════════════════════════ -->
-        <section id="view-public" class="view active">
+        <!-- PANTALLA DE INICIO (PORTADA) -->
+        <section id="view-home" class="view active">
+            <div class="home-hero">
+                <div class="home-logo">📐</div>
+                <h1 class="home-title">MathCoins</h1>
+                <p class="home-subtitle">Sistema de Gamificación Educativa 2025</p>
+                
+                <div class="home-buttons">
+                    <button class="btn-home btn-home-primary" id="btn-go-wallet">
+                        <span class="btn-icon">👤</span>
+                        <span class="btn-text">
+                            <strong>Mi Billetera</strong>
+                            <small>Accedé a tu saldo y historial</small>
+                        </span>
+                    </button>
+                    
+                    <button class="btn-home btn-home-secondary" id="btn-go-ranking">
+                        <span class="btn-icon"></span>
+                        <span class="btn-text">
+                            <strong>Ranking del Curso</strong>
+                            <small>Ver clasificación completa</small>
+                        </span>
+                    </button>
+                </div>
+                
+                <div class="home-footer-info">
+                    <p>🎮 Ganá MathCoins con tu esfuerzo · 🛒 Canjealos por recompensas</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA 1: PÚBLICA (Ranking + Catálogo) -->
+        <section id="view-public" class="view">
+            <div class="view-header">
+                <button class="btn-back" id="btn-back-home-1">← Volver al inicio</button>
+                <h2>🏆 Ranking del Curso</h2>
+            </div>
             
-            <!-- Selector de curso -->
             <div class="course-selector">
-                <label for="select-course">🏫 Mi curso:</label>
+                <label for="select-course">🏫 Seleccioná tu curso:</label>
                 <select id="select-course">
                     <option value="">-- Seleccioná un curso --</option>
                 </select>
             </div>
 
-            <!-- Ranking -->
             <div class="section-card">
-                <h2>🏆 Ranking del Curso</h2>
                 <table class="ranking-table" id="ranking-table">
                     <thead>
                         <tr>
@@ -57,78 +90,78 @@
                 </table>
             </div>
 
-            <!-- Catálogo -->
             <div class="section-card">
-                <h2>🛒 Catálogo de Recompensas</h2>
-                <div class="catalog-grid" id="catalog-grid">
-                    <!-- Se llena dinámicamente -->
-                </div>
+                <h3>🛒 Catálogo de Recompensas</h3>
+                <div class="catalog-grid" id="catalog-grid"></div>
             </div>
         </section>
 
-        <!-- ═══════════════════════════════════════════════════════ -->
-        <!-- VISTA 2: PRIVADA (Billetera del alumno)                -->
-        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- VISTA 2: PRIVADA (Billetera del alumno) -->
         <section id="view-private" class="view">
+            <div class="view-header">
+                <button class="btn-back" id="btn-back-home-2">← Volver al inicio</button>
+                <h2>👤 Mi Billetera Personal</h2>
+            </div>
             
-            <!-- Login simple del alumno -->
             <div class="section-card" id="private-login">
-                <h2>👤 Accedé a tu billetera</h2>
+                <h3>Accedé a tu cuenta</h3>
                 <div class="login-form">
-                    <label for="login-course">Curso:</label>
-                    <select id="login-course"></select>
-                    
-                    <label for="login-name">Tu nombre:</label>
-                    <select id="login-name">
-                        <option value="">-- Seleccioná tu nombre --</option>
-                    </select>
-                    
-                    <button class="btn-primary" id="btn-login">Ingresar</button>
+                    <div class="form-group">
+                        <label for="login-course">1. Seleccioná tu curso:</label>
+                        <select id="login-course"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-name">2. Buscá tu nombre:</label>
+                        <select id="login-name">
+                            <option value="">-- Primero seleccioná el curso --</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary btn-large" id="btn-login"> Ingresar a mi billetera</button>
                 </div>
             </div>
 
-            <!-- Billetera (oculta hasta login) -->
             <div id="private-wallet" class="hidden">
                 <div class="wallet-header">
-                    <button class="btn-secondary" id="btn-logout">← Volver</button>
+                    <button class="btn-secondary" id="btn-logout">← Salir</button>
                     <h2 id="wallet-student-name">Estudiante</h2>
                 </div>
 
-                <!-- Saldo grande -->
                 <div class="balance-card">
                     <div class="balance-amount" id="wallet-balance">0</div>
                     <div class="balance-label">MathCoins</div>
                     <div class="balance-level" id="wallet-level">🔰 Novato</div>
                 </div>
 
-                <!-- Historial -->
                 <div class="section-card">
-                    <h3>📊 Historial de movimientos</h3>
+                    <h3>📊 Mi historial de movimientos</h3>
                     <ul class="history-list" id="wallet-history">
                         <li class="empty-msg">Sin movimientos registrados</li>
                     </ul>
                 </div>
+                
+                <div class="section-card">
+                    <h3>🛒 Recompensas disponibles</h3>
+                    <div class="catalog-grid" id="wallet-catalog-grid"></div>
+                </div>
             </div>
         </section>
 
-        <!-- ═══════════════════════════════════════════════════════ -->
-        <!-- VISTA 3: PANEL DE ADMINISTRACIÓN                       -->
-        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- VISTA 3: PANEL DE ADMINISTRACIÓN -->
         <section id="view-admin" class="view">
-            
-            <!-- Acceso admin (simple, solo para empezar) -->
             <div class="section-card" id="admin-login">
-                <h2>🔐 Acceso Administrativo</h2>
+                <h2> Acceso Administrativo</h2>
                 <p class="hint">Ingresá la clave de profe para continuar</p>
                 <input type="password" id="admin-password" placeholder="Clave">
                 <button class="btn-primary" id="btn-admin-login">Ingresar</button>
                 <p class="hint small">Pista inicial: "profe"</p>
             </div>
 
-            <!-- Panel admin (oculto hasta login) -->
             <div id="admin-panel" class="hidden">
+                <div class="view-header">
+                    <button class="btn-back" id="btn-back-home-3">← Volver al inicio</button>
+                    <h2>⚙️ Panel de Administración</h2>
+                </div>
                 
-                <!-- Selector de curso activo -->
                 <div class="admin-header">
                     <label>Curso activo:</label>
                     <select id="admin-course"></select>
@@ -136,7 +169,6 @@
                     <button class="btn-secondary" id="btn-admin-logout">Salir</button>
                 </div>
 
-                <!-- Formulario de movimiento -->
                 <div class="section-card">
                     <h3>💰 Registrar movimiento</h3>
                     <div class="form-grid">
@@ -169,7 +201,6 @@
                     </div>
                 </div>
 
-                <!-- Gestión de alumnos -->
                 <div class="section-card">
                     <h3>👥 Alumnos del curso</h3>
                     <div class="admin-actions">
@@ -191,19 +222,16 @@
                     </table>
                 </div>
 
-                <!-- Gestión de cursos -->
                 <div class="section-card">
                     <h3>🏫 Mis cursos</h3>
                     <div id="admin-courses-list"></div>
                 </div>
 
-                <!-- Edición de catálogo -->
                 <div class="section-card">
                     <h3>🛒 Catálogo de recompensas (compartido)</h3>
                     <div id="admin-catalog-list"></div>
                     <button class="btn-secondary" id="btn-add-catalog">+ Agregar ítem</button>
                 </div>
-
             </div>
         </section>
 
@@ -213,6 +241,7 @@
         <p>MathCoins 2025 · Sistema de gamificación educativa</p>
     </footer>
 
+    <!-- Script principal -->
     <script src="app.js"></script>
 </body>
 </html>
