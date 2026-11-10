@@ -32,7 +32,7 @@
       "estudiantes": [
         {
           "id": "1",
-          "nombre": "ALVAREZ MILAGROS",
+          "nombre": "ESTUDIANTE 1",
           "historial": [
             {
               "fecha": "2025-05-30T10:00:00.000Z",
@@ -56,157 +56,92 @@
         },
         {
           "id": "2",
-          "nombre": "ALVAREZ ZAIRA",
+          "nombre": "ESTUDIANTE 2",
           "historial": []
         },
         {
           "id": "3",
-          "nombre": "AYALA TOBARES MAILEN",
+          "nombre": "ESTUDIANTE 3",
           "historial": []
         },
         {
           "id": "4",
-          "nombre": "BUENAHORA NAHIARA",
+          "nombre": "ESTUDIANTE 4",
           "historial": []
         },
         {
           "id": "5",
-          "nombre": "CARMONA JOAQUIN",
+          "nombre": "ESTUDIANTE 5",
           "historial": []
         },
         {
           "id": "6",
-          "nombre": "CAVALLO BRITTANY",
+          "nombre": "ESTUDIANTE 6",
           "historial": []
         },
         {
           "id": "7",
-          "nombre": "CRISPONI ADRIANO",
+          "nombre": "ESTUDIANTE 7",
           "historial": []
         },
         {
           "id": "8",
-          "nombre": "CORONEL VICTORIA",
+          "nombre": "ESTUDIANTE 8",
           "historial": []
         },
         {
           "id": "9",
-          "nombre": "COSTANZO UMA",
+          "nombre": "ESTUDIANTE 9",
           "historial": []
         },
         {
           "id": "10",
-          "nombre": "DI SALVO CRISTIAN",
+          "nombre": "ESTUDIANTE 10",
           "historial": []
         },
         {
           "id": "11",
-          "nombre": "DURO ZOE",
+          "nombre": "ESTUDIANTE 11",
           "historial": []
         },
         {
           "id": "12",
-          "nombre": "ESCUDERO LAUTARO",
+          "nombre": "ESTUDIANTE 12",
           "historial": []
         },
         {
           "id": "13",
-          "nombre": "ESPERON ROMAN",
+          "nombre": "ESTUDIANTE 13",
           "historial": []
         },
         {
           "id": "14",
-          "nombre": "FIGALLO RAMIRO",
+          "nombre": "ESTUDIANTE 14",
           "historial": []
         },
         {
           "id": "15",
-          "nombre": "LABOUR THIAGO",
+          "nombre": "ESTUDIANTE 15",
           "historial": []
         },
         {
           "id": "16",
-          "nombre": "LESCANO LEYLA",
+          "nombre": "ESTUDIANTE 16",
           "historial": []
         },
         {
           "id": "17",
-          "nombre": "MONSALVE PABLO",
+          "nombre": "ESTUDIANTE 17",
           "historial": []
         },
         {
           "id": "18",
-          "nombre": "OBIEDO LUNA",
+          "nombre": "ESTUDIANTE 18",
           "historial": []
         },
         {
           "id": "19",
-          "nombre": "PACHECO MIGUEL",
-          "historial": []
-        },
-        {
-          "id": "20",
-          "nombre": "PEREYRA MARIA",
-          "historial": []
-        },
-        {
-          "id": "21",
-          "nombre": "PEREZ AINHOA",
-          "historial": []
-        },
-        {
-          "id": "22",
-          "nombre": "RETAMALES DYLAN",
-          "historial": []
-        },
-        {
-          "id": "23",
-          "nombre": "RETAMALES MACARENA",
-          "historial": []
-        },
-        {
-          "id": "24",
-          "nombre": "RONDAN GONZALO",
-          "historial": []
-        },
-        {
-          "id": "25",
-          "nombre": "SANCHEZ ZACH KEYLA",
-          "historial": []
-        },
-        {
-          "id": "26",
-          "nombre": "SOTO AINARA",
-          "historial": []
-        },
-        {
-          "id": "27",
-          "nombre": "TAMBOLINI SANTINO",
-          "historial": []
-        },
-        {
-          "id": "28",
-          "nombre": "TORRES CANDELA",
-          "historial": []
-        },
-        {
-          "id": "29",
-          "nombre": "URANGA ABRIL",
-          "historial": []
-        },
-        {
-          "id": "30",
-          "nombre": "MORENO SHARON",
-          "historial": []
-        },
-        {
-          "id": "31",
-          "nombre": "SAENZ LEONEL",
-          "historial": []
-        },
-        {
-          "id": "32",
-          "nombre": "BROWN YANE LOURDES",
+          "nombre": "ESTUDIANTE 19",
           "historial": []
         }
       ]
